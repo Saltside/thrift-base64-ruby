@@ -80,8 +80,7 @@ Or install it yourself as:
 
 `thrift-base64` adds two classes to the `Thrift` module:
 `Thrift::Base64Derserializer` & `Thrift::Base64Serializer`. They mimic the
-interface of `Thirft::Deserializer` & `Thrift::Serializer` except they
-require no arguments to `initialize`. Here's an example:
+interface of `Thirft::Deserializer` & `Thrift::Serializer`.
 
 ```ruby
 require 'thrift-base64'
