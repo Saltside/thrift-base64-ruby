@@ -58,7 +58,7 @@ protocols. Just check out the benchmarks below.
 			 YAML/Binary:     6118.3 i/s - 5.96x slower
 		YAML/YAML String:     3636.5 i/s - 10.03x slower
 
-These benchmarks are included in [benchmark/][benchmark/].
+These benchmarks are included in [benchmark/](benchmark/).
 
 ## Installation
 
