@@ -52,6 +52,16 @@ class AcceptanceTest < MiniTest::Unit::TestCase
     assert_equal struct.message, deserialized.message
   end
 
+  def test_works_with_unions
+    union = SimpleUnion.new foo: 'set'
+
+    roundtripped = SimpleUnion.from_base64(union.to_base64)
+    assert_equal union.foo, roundtripped.foo
+
+    roundtripped = SimpleUnion.from_compact_base64(union.to_compact_base64)
+    assert_equal union.foo, roundtripped.foo
+  end
+
   private
 
   def assert_utf8(string)

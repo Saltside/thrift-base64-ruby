@@ -23,3 +23,32 @@ class SimpleStruct
   ::Thrift::Struct.generate_accessors self
 end
 
+class SimpleUnion < ::Thrift::Union
+  include ::Thrift::Struct_Union
+  class << self
+    def foo(val)
+      SimpleUnion.new(:foo, val)
+    end
+
+    def bar(val)
+      SimpleUnion.new(:bar, val)
+    end
+  end
+
+  FOO = 1
+  BAR = 2
+
+  FIELDS = {
+    FOO => {:type => ::Thrift::Types::STRING, :name => 'foo'},
+    BAR => {:type => ::Thrift::Types::STRING, :name => 'bar'}
+  }
+
+  def struct_fields; FIELDS; end
+
+  def validate
+    raise(StandardError, 'Union fields are not set.') if get_set_field.nil? || get_value.nil?
+  end
+
+  ::Thrift::Union.generate_accessors self
+end
+

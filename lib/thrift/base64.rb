@@ -49,4 +49,16 @@ module Thrift
       to_base64 CompactProtocolFactory.new
     end
   end
+
+  class Union
+    extend Base64Extension::FromBase64
+
+    def to_base64(protocol = BinaryProtocolFactory.new)
+      Base64Serializer.new(protocol).serialize self
+    end
+
+    def to_compact_base64
+      to_base64 CompactProtocolFactory.new
+    end
+  end
 end
