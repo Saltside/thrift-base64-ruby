@@ -1,6 +1,6 @@
 require_relative 'test_helper'
 
-class AcceptanceTest < MiniTest::Unit::TestCase
+class AcceptanceTest < MiniTest::Test
   attr_reader :struct
 
   def setup
